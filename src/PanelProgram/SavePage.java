@@ -36,14 +36,14 @@ public class SavePage implements ActionListener {
     String sizeY;
 
     public SavePage(String username, JPanel paperPanel, CreateColor colorStyle
-                , String picterName, String sizeX, String sizeY){
+            , String picterName, String sizeX, String sizeY){
         this.colorStyle = colorStyle;
         this.picterName = picterName;
         this.sizeX = sizeX;
         this.sizeY = sizeY;
         this.paperPanel.setBackground(Color.WHITE);
         this.paperPanel.setPreferredSize(new Dimension(Integer.valueOf(sizeX),Integer.valueOf(sizeY)));
-        
+
         this.username = username;
         this.paperPanel = paperPanel;
         saveFrame.setLayout(new BorderLayout());

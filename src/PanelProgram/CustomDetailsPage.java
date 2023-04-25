@@ -68,13 +68,13 @@ public class CustomDetailsPage implements ActionListener, ItemListener {
 		topicLabel.setFont(new Font("Verdana",Font.BOLD,48));
 		topicLabel.setForeground(new Color(255,51,153));
 		topicPanel.add(topicLabel);
-	        
+
 		centerPanel.setLayout(new GridLayout(5,1));
 		centerPanel.add(topicPanel);
 		centerPanel.add(namePicPanel);
 		centerPanel.add(topicSizePanel);
 		centerPanel.add(themeColorPanel);
-	        
+
 		namePicPanel.setLayout(new GridLayout(2,1));
 		picNameLabel.setFont(new Font("Verdana",Font.BOLD,18));
 		namePicPanel.add(picNameLabel);
@@ -150,7 +150,7 @@ public class CustomDetailsPage implements ActionListener, ItemListener {
 		else if(e.getSource() == nextButton) {
 			customDetailsFrame.dispose();
 			CanvasPage canvasPage = new CanvasPage(username, new PaperPanel(), colorStyle, picterNameTextField.getText(),
-													sizexTextField.getText(), sizeyTextField.getText());
+					sizexTextField.getText(), sizeyTextField.getText());
 		}
 	}
 

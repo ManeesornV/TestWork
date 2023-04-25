@@ -56,4 +56,3 @@ public class AdamColor extends CreateColor implements ActionListener {
     }
 
 }
-
