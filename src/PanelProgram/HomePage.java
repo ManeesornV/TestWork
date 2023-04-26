@@ -6,11 +6,7 @@ import CreateComponents.HomeTextField;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 
 public class HomePage implements ActionListener {
     JFrame homePageFrame = new JFrame();
@@ -25,15 +21,15 @@ public class HomePage implements ActionListener {
     JPanel textFieldPanel = new JPanel();
     JPanel buttomPanel = new JPanel();
 
-    JLabel topLabel = new JLabel("Level");
+    JLabel topLabel = new JLabel("    ");
     JLabel topicLabel = new JLabel("LET'S COLOR");
 
     HomeTextField nameTextField = new HomeTextField();
 
     HomeButton startButton = new HomeButton("START !!");
     HomeButton howToButton = new HomeButton("How to");
-    HomeButton backgroundButton = new HomeButton("Background");
-    HomeButton colorButton = new HomeButton("Color");
+//    HomeButton backgroundButton = new HomeButton("Background");
+//    HomeButton colorButton = new HomeButton("Color");
 
     String username = "";
 
@@ -53,18 +49,20 @@ public class HomePage implements ActionListener {
 
         textFieldPanel.setLayout(null);
         nameTextField.setBounds(0,0, 350,60);
+        nameTextField.setFont(new Font("Verdana",Font.BOLD,18));
         textFieldPanel.add(nameTextField);
         centerpanel.add(textFieldPanel);
 
         buttonPanel.setLayout(new GridLayout(4,1,0,5));
         buttonPanel.add(startButton);
         buttonPanel.add(howToButton);
-        buttonPanel.add(backgroundButton);
-        buttonPanel.add(colorButton);
+//        buttonPanel.add(backgroundButton);
+//        buttonPanel.add(colorButton);
         centerpanel.add(buttonPanel);
         centerpanel.add(buttomPanel);
 
         startButton.addActionListener(this::actionPerformed);
+        howToButton.addActionListener(this::actionPerformed);
 
         mainPanel.add(centerpanel);
         mainPanel.add(rightPanel);
@@ -84,6 +82,10 @@ public class HomePage implements ActionListener {
             username = nameTextField.getText();
             homePageFrame.dispose();
             CustomDetailsPage customDetailsPage = new CustomDetailsPage(username);
+        }
+        else if(e.getSource() == howToButton) {
+            homePageFrame.dispose();
+            HowToPage howToPage = new HowToPage();
         }
     }
 }

@@ -65,6 +65,7 @@ public class SavePage implements ActionListener {
         descriptionPanel.add(descriptionLabel);
         descriptionLabel.setFont(new Font("Verdana",Font.BOLD,36));
         descriptionPanel.add(namePictureTextField);
+        namePictureTextField.setFont(new Font("Verdana",Font.BOLD,18));
 
         backButton.addActionListener(this::actionPerformed);
         saveButton.addActionListener(this::actionPerformed);
@@ -75,10 +76,6 @@ public class SavePage implements ActionListener {
         saveFrame.setLocationRelativeTo(null);
         saveFrame.setVisible(true);
         saveFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-
-    public static void main(String[] args) {
-        //SavePage savePage = new SavePage("Fresh");
     }
 
     @Override

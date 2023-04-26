@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 
 public class CustomDetailsPage implements ActionListener, ItemListener {
 	JFrame customDetailsFrame = new JFrame();
+
 	JPanel customDetailsPanel = new JPanel();
 	JPanel rightPanel = new JPanel();
 	JPanel colorPanel = new JPanel();
@@ -39,6 +40,7 @@ public class CustomDetailsPage implements ActionListener, ItemListener {
 	JLabel xLabel = new JLabel("    X : ");
 	JLabel yLabel = new JLabel("Y : ");
 	JLabel colorThemeLabel = new JLabel("Set up your theme of your color");
+
 	JRadioButton AdamRadioButton = new JRadioButton("Adam");
 	JRadioButton AvaRadioButton = new JRadioButton("Ava");
 	JRadioButton EveRadioButton = new JRadioButton("Eve");
@@ -46,8 +48,10 @@ public class CustomDetailsPage implements ActionListener, ItemListener {
 	HomeTextField picterNameTextField = new HomeTextField();
 	HomeTextField sizexTextField = new HomeTextField();
 	HomeTextField sizeyTextField = new HomeTextField();
+
 	HomeButton backButton = new HomeButton("Back");
 	HomeButton nextButton = new HomeButton("Next");
+
 	String username;
 	CreateColor colorStyle;
 
@@ -69,7 +73,7 @@ public class CustomDetailsPage implements ActionListener, ItemListener {
 		topicLabel.setForeground(new Color(255,51,153));
 		topicPanel.add(topicLabel);
 
-		centerPanel.setLayout(new GridLayout(5,1));
+		centerPanel.setLayout(new GridLayout(4,1));
 		centerPanel.add(topicPanel);
 		centerPanel.add(namePicPanel);
 		centerPanel.add(topicSizePanel);
@@ -82,6 +86,7 @@ public class CustomDetailsPage implements ActionListener, ItemListener {
 		picNameTextFieldPanel.setLayout(null);
 		picNameTextFieldPanel.add(picterNameTextField);
 		picterNameTextField.setBounds(0,0, 370,50);
+		picterNameTextField.setFont(new Font("Verdana",Font.BOLD,18));
 		namePicPanel.add(picNameTextFieldPanel);
 
 
@@ -97,6 +102,7 @@ public class CustomDetailsPage implements ActionListener, ItemListener {
 		xTextFieldPanel.setLayout(null);
 		xTextFieldPanel.add(sizexTextField);
 		sizexTextField.setBounds(0,0, 70,45);
+		sizexTextField.setFont(new Font("Verdana",Font.BOLD,18));
 		sizePanel.add(xTextFieldPanel);
 
 		yLabel.setFont(new Font("Verdana",Font.BOLD,18));
@@ -105,6 +111,7 @@ public class CustomDetailsPage implements ActionListener, ItemListener {
 		yTextFieldPanel.add(sizeyTextField);
 		yTextFieldPanel.setLayout(null);
 		sizeyTextField.setBounds(0,0, 70,45);
+		sizeyTextField.setFont(new Font("Verdana",Font.BOLD,18));
 		sizePanel.add(yTextFieldPanel);
 
 		themeColorPanel.setLayout(new GridLayout(2,1));
@@ -149,8 +156,7 @@ public class CustomDetailsPage implements ActionListener, ItemListener {
 		}
 		else if(e.getSource() == nextButton) {
 			customDetailsFrame.dispose();
-			CanvasPage canvasPage = new CanvasPage(username, new PaperPanel(), colorStyle, picterNameTextField.getText(),
-					sizexTextField.getText(), sizeyTextField.getText());
+			CanvasPage canvasPage = new CanvasPage(username, new PaperPanel(), colorStyle, picterNameTextField.getText(), sizexTextField.getText(), sizeyTextField.getText());
 		}
 	}
 

@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class CreateColor extends JPanel {
     public static Color color;
-    JPanel colorPanel = new JPanel();
+    protected JPanel colorPanel = new JPanel();
     public static JButton[] buttons = new JButton[12];
 
     public CreateColor() {
@@ -22,7 +22,7 @@ public class CreateColor extends JPanel {
 
     public JButton createColor(Color color){
         JButton button = new JButton();
-        button.setSize(80, 80);
+        button.setSize(200, 200);
         button.setBackground(color);
         return button;
     }

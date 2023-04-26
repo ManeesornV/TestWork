@@ -1,7 +1,5 @@
 package Palette;
 
-import PanelProgram.PaperPanel;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,21 +7,22 @@ import java.awt.event.ActionListener;
 
 public class AdamColor extends CreateColor implements ActionListener {
     public static Color[] colorsAdam = {
-            new Color(255,0,255),
-            new Color(155,100,200),
-            new Color(255,0,255),
-            new Color(255,0,255),
-            new Color(255,0,255),
-            new Color(255,0,255),
-            new Color(255,0,255),
-            new Color(255,0,255),
-            new Color(255,0,255),
-            new Color(255,0,255),
-            new Color(255,0,255),
-            new Color(255,0,255),
+            new Color(255,153,153),
+            new Color(255,204,153),
+            new Color(255,255,153),
+            new Color(204,255,153),
+            new Color(153,255,153),
+            new Color(153,255,204),
+            new Color(153,204,255),
+            new Color(153,153,255),
+            new Color(204,153,255),
+            new Color(255,153,255),
+            new Color(255,153,204),
+            new Color(224,224,224),
     };
     JButton[] buttons = new JButton[12];
     public AdamColor(){
+        setSize(400,400);
         for(int i = 0; i < 12; i++){
             buttons[i] = super.createColor(colorsAdam[i]);
         }
@@ -32,17 +31,6 @@ public class AdamColor extends CreateColor implements ActionListener {
             super.colorPanel.add(buttons[i]);
             buttons[i].addActionListener(this::actionPerformed);
         }
-    }
-
-    public static void main(String[] args) {
-        AdamColor adamColor = new AdamColor();
-        JFrame jFrame = new JFrame();
-        JPanel jPanel = new JPanel();
-        jPanel.add(adamColor.getColorPanel());
-        jFrame.setSize(1280,720);
-        jFrame.setLocationRelativeTo(null);
-        jFrame.setVisible(true);
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     @Override

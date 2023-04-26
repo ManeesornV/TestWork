@@ -6,21 +6,22 @@ import java.awt.event.ActionListener;
 
 public class AvaColor extends CreateColor implements ActionListener {
     static Color[] colors = {
-            new Color(200,51,50),
-            new Color(200,51,50),
-            new Color(200,51,50),
-            new Color(200,51,50),
-            new Color(200,51,50),
-            new Color(200,51,50),
-            new Color(200,51,50),
-            new Color(200,51,50),
-            new Color(200,51,50),
-            new Color(200,51,50),
-            new Color(200,51,50),
-            new Color(200,51,50),
+            new Color(255,69,0),
+            new Color(255,140,0),
+            new Color(255,215,0),
+            new Color(46,139,87),
+            new Color(60,179,113),
+            new Color(0,255,127),
+            new Color(65,105,225),
+            new Color(30,144,255),
+            new Color(0,191,255),
+            new Color(0,0,0),
+            new Color(128,128,128),
+            new Color(255,255,255),
     };
 
     public AvaColor(){
+        setSize(400,400);
         for(int i = 0; i < 12; i++){
             buttons[i] = super.createColor(colors[i]);
         }

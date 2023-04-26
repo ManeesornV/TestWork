@@ -3,13 +3,11 @@ package PanelProgram;
 import Palette.CreateColor;
 
 import java.awt.*;
-import java.awt.event.InputEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.Vector;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class PaperPanel extends JPanel implements MouseListener, MouseMotionListener {
@@ -24,15 +22,17 @@ public class PaperPanel extends JPanel implements MouseListener, MouseMotionList
     Vector points = new Vector();
 
 
-    public PaperPanel(Color color){
-        init(CreateColor.getColor());
+    public PaperPanel(Color color, int x, int y){
+        init(CreateColor.getColor(), x, y);
     }
 
     PaperPanel(){
-        init(this.color);
+        init(this.color, this.x, this.y);
     }
 
-    public void init(Color color) {
+    public void init(Color color, int x, int y) {
+        this.x = x;
+        this.y = y;
         colorArrayList.add(Color.black);
         colorArrayList.add(this.color);
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -40,7 +40,6 @@ public class PaperPanel extends JPanel implements MouseListener, MouseMotionList
         this.setPreferredSize(new Dimension(200,200));
         this.addMouseMotionListener(this);
         this.addMouseListener(this);
-        //repaint();
     }
 
     public void mouseClicked(MouseEvent e) {
@@ -92,16 +91,6 @@ public class PaperPanel extends JPanel implements MouseListener, MouseMotionList
     public void mouseDragged(MouseEvent e) {
         this.color = CreateColor.getColor();
         colorArrayList.add(this.color);
-//        Graphics g = getGraphics();
-//        if (e.getModifiersEx() == InputEvent.BUTTON1_DOWN_MASK){
-//            g.setColor(this.color);
-//            g.drawLine(x, y, e.getX(), e.getY());
-//        } else {
-//            g.setColor(getBackground());
-//            g.fillOval(x-r, y-r, 2*r, 2*r);
-//        }
-//        x = e.getX();
-//        y = e.getY();
         e.consume();
         sPoint.x = e.getX();
         sPoint.y = e.getY();
@@ -115,30 +104,26 @@ public class PaperPanel extends JPanel implements MouseListener, MouseMotionList
     public void paintComponent(Graphics g) {
         this.color = CreateColor.getColor();
         super.paintComponent(g);
+        for(int i = 20; i< this.x; i+=50){
+            g.drawLine(i,50,i,this.y);
+            g.setColor(new Color(150,150,150));
+        }
+
+        for(int i = 20; i< this.y; i+=50){
+            g.drawLine(50,i,this.x,i);
+            g.setColor(new Color(150,150,150));
+        }
+
         Point p1, p2;
-        /* Draw old lines.Every 2 points construct a line.*/
         for (int i=0; i < points.size()-1; i+=2) {
             p1 = (Point)points.elementAt(i);
             p2 = (Point)points.elementAt(i+1);
             if(i > 2){
                 g.setColor(colorArrayList.get(i/2));
             }
-            g.fillOval(p1.x, p1.y, 20, 20);
+            g.fillOval(p1.x, p1.y, 10, 10);
         }
-        /* Draw current line.*/
-        //g.drawLine(sPoint.x, sPoint.y, ePoint.x, ePoint.y);
-        g.fillOval(sPoint.x, sPoint.y, 20, 20);
-        System.out.println(points);
-    }
-
-    public static void main(String arg[])
-    {
-        PaperPanel line= new PaperPanel(Color.BLUE);
-        JFrame f= new JFrame();
-        f.add(line);
-        f.setSize(new Dimension(300,300));
-        f.getContentPane().add(line);
-        f.setVisible(true);
+        g.fillOval(sPoint.x, sPoint.y, 10, 10);
     }
 
 }
